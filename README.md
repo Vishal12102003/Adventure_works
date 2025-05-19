@@ -1,51 +1,91 @@
-# Adventure_works
-AI Variant- Internship Project. Meet the requirements, built a dashboard that impacted the Company to reduce the production cost and for the expansion of business, provided insights that helped the company to target the specific regions, with the goal of optimizing marketing strategies and boosting revenue across targeted categories. 
+# 📊 Adventure Works Sales Dashboard
 
-# 📊 Sales Performance Dashboard
+This is an end-to-end Power BI project analyzing sales performance for **Adventure Works**, a fictional bicycle and accessories company. The dashboard highlights product trends, customer segments, and regional performance to help stakeholders optimize marketing strategies and drive revenue growth.
 
-This Power BI dashboard provides a detailed view of sales performance across product categories, customer segments, and geographic regions. It is designed to support decision-makers in identifying key trends and taking data-driven actions.
 
----
-
-## 🛠 Tools & Technologies
-- **Power BI Desktop**
-- **Microsoft Excel (for Importing)**
-- **Power Query (for Data Cleaning)**
-- **DAX (Calculations)**
 
 ---
 
-## 🎯 Business Objectives
-- Monitor total sales, profit, and order quantities.
-- Analyze top-performing product categories and customer segments.
-- Visualize regional performance using maps.
-- Detect trends and performance gaps over time.
-- Analyze low product categories and eliminate products with high production Costs.
+## 🎯 Project Objective
+
+To analyze sales performance, product trends, regional demand, and customer segments for Adventure Works, with the goal of optimizing marketing strategies and boosting revenue across targeted categories.
 
 ---
 
-## 📈 Key Insights
-| Metric                 | Value            | Actionable Insight                                         |
-|------------------------|------------------|------------------------------------------------------------|
-| Total Sales            | $2.19M           | High revenue, but the South region outperforms others.     |
-| Profit Margin          | 21.4%            | Focus on high-margin categories for growth.                |
-| Best Performing Region | South ($674K)    | Increased stock allocation to meet demand.                 |
-| Weakest Category       | Tables           | Reduced inventory to cut costs.                            |
-| Segment Growth         | Corporate ↑ 12%  | Launched targeted promotions based on segment behavior.    |
+## 🧩 Problem Statement
+
+Adventure Works Cycles is looking to broaden its market share by targeting their sales to their best customers, extending their product availability through an external Web site, and reducing their cost of sales through lower production costs. 
+The business needs a clear understanding of:
+- Which **products** are top or under-performers.
+- Which **regions** drive the most revenue.
+- Which **customer segments** yield the highest profits.
+- How to make **data-driven marketing and sales decisions** based on these insights.
 
 ---
 
-## 📷 Dashboard Screenshots
+## 🚀 Steps Followed
 
-![Sales Overview](])
-![Regional Breakdown]()
-![Customer Analysis]()
-![Product Analysis]()
-![Bottom 10 Product Analysis]()
+### 🔹 Step 1: Data Import
+- Loaded the `.xlsx` dataset into **Excel** for initial review.
+- Then imported into **Power BI** via **Power Query Editor**.
 
-> *(Adventure_Works_Analysis`/images/` folder)*
+### 🔹 Step 2: Data Profiling in Power Query
+- Enabled the following options in the **View** tab:
+  - `Column distribution`
+  - `Column quality`
+  - `Column profile`
+- Changed profiling mode to:  
+  ✅ **Column profiling based on entire dataset**
 
+### 🔹 Step 3: Data Transformation
+- **Appended** `Fact_Internet_Sales_New` to `FactInternetSales` → named the resulting table: `Sales`.
+
+### 🔹 Step 4: Data Enrichment via Lookups
+Performed multiple **lookup operations** to bring in relevant details:
+- `ProductName` from the **Product** table to **Sales**
+- `CustomerFullName` from the **Customer** table to **Sales**
+- `Unit Price` from **Product** table to **Sales**
+
+### 🔹 Step 5: Date Table and Time Intelligence
+Created a **Date dimension** from the `OrderDateKey` and generated the following fields:
+
+| Column Name | Description |
+|-------------|-------------|
+| `Year` | Extracted using `YEAR([OrderDateKey])` |
+| `MonthNo` | `FORMAT([OrderDateKey], "mm")` |
+| `MonthName` | `FORMAT([OrderDateKey], "mmmm")` |
+| `Quarter` | `CONCATENATE("Q", QUARTER([OrderDateKey]))` |
+| `WeekdayNo` | `WEEKNUM([OrderDateKey])` |
+| `WeekdayName` | `FORMAT([OrderDateKey], "DDDD")` |
+| `FinancialMonth` | Custom fiscal month calculation |
+| `FinancialYear` | Custom fiscal year calculation |
+
+### Fiscal Logic:
+```DAX
+FinancialMonth = IF(MONTH([OrderDateKey]) >= 4, MONTH([OrderDateKey]) - 3, MONTH([OrderDateKey]) + 9)
+
+FinancialYear = IF(MONTH([OrderDateKey]) >= 4, YEAR([OrderDateKey]), YEAR([OrderDateKey]) - 1)
+
+SalesAmt = [UnitPrice] * [OrderQuantity] - [UnitPriceDiscountPct]
+
+ProductionCost = [ProductStandardCost] * [OrderQuantity]
+
+Profit = [SalesAmt] - [ProductionCost]
+
+```
 ---
 
-## 📁 Repository Structure
+## 📊 Sales Dashboard
+![Dashboard Screenshot](https://github.com/user-attachments/assets/392d7d0b-531d-4b52-bc95-fc340f5f7086)
 
+## 📊 Region Analysis 
+![Image](https://github.com/user-attachments/assets/f8f72080-1289-4d94-9b6c-efac43ec08f8)
+
+## 📊 Customer Analysis 
+![Image](https://github.com/user-attachments/assets/8a8eb97d-d2c9-4337-b893-65a003766ff1)
+
+## 📊 Product Analysis 
+![Image](https://github.com/user-attachments/assets/0b301dfe-f8f9-4800-aa68-b98983fffbe6)
+
+## 📊 Bottom 10 Product Analysis 
+![Image](https://github.com/user-attachments/assets/76ca5dde-e21a-42ba-b1c3-75a2399126c8)
