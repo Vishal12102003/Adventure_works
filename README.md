@@ -1,6 +1,6 @@
 # 📊 Adventure Works Sales Dashboard
 
-This is an end-to-end Power BI project analyzing sales performance for **Adventure Works**, a fictional bicycle and accessories company. The dashboard highlights product trends, customer segments, and regional performance to help stakeholders optimize marketing strategies and drive revenue growth.
+This is an end-to-end Power BI project analyzing sales performance for **Adventure Works**, a fictional bicycle and accessories company. The dashboard highlights product trends, customer segments, and regional performance to help stakeholders optimize marketing strategies and expand their business to other regions, and drive revenue growth.
 
 
 
