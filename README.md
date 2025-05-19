@@ -75,17 +75,20 @@ Profit = [SalesAmt] - [ProductionCost]
 ```
 ---
 
-## 📊 Sales Dashboard
+#### Uploaded In Power Bi Service: [Click Here](https://app.powerbi.com/view?r=eyJrIjoiZGIwM2U3NWQtNTY3YS00NGJkLWFiNTctMzJjNjE2NmZiNzI5IiwidCI6ImE3NTk3ZTk2LTE1NDAtNDVmZi05ZGE5LTg5NWY5NzRhZDYyYSJ9)
+
+
+### 📊 Sales Dashboard
 ![Dashboard Screenshot](https://github.com/user-attachments/assets/392d7d0b-531d-4b52-bc95-fc340f5f7086)
 
-## 📊 Region Analysis 
+### 📊 Region Analysis 
 ![Image](https://github.com/user-attachments/assets/f8f72080-1289-4d94-9b6c-efac43ec08f8)
 
-## 📊 Customer Analysis 
+### 📊 Customer Analysis 
 ![Image](https://github.com/user-attachments/assets/8a8eb97d-d2c9-4337-b893-65a003766ff1)
 
-## 📊 Product Analysis 
+### 📊 Product Analysis 
 ![Image](https://github.com/user-attachments/assets/0b301dfe-f8f9-4800-aa68-b98983fffbe6)
 
-## 📊 Bottom 10 Product Analysis 
+### 📊 Bottom 10 Product Analysis 
 ![Image](https://github.com/user-attachments/assets/76ca5dde-e21a-42ba-b1c3-75a2399126c8)
